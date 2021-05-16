@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
-
+using System.Linq;
 namespace Beale_Cipher_Algorithm_CLI
 {
     class Program
     {
+        //  method that prints the usage information(how to use the tool)
         public static void usage()
         {
             Console.WriteLine("Usage:  Beale_Cipher-CLI <operation> <text> <path\\to\\source-book>");
@@ -15,6 +16,7 @@ namespace Beale_Cipher_Algorithm_CLI
             Console.WriteLine("\tBeale_Cipher-CLI decrypt \"20 12 7 4 2 1 2 4 2\" res/file.txt");
         }
 
+        // error logging system
         public static void Error(string msg)
         {
             Console.WriteLine("ERROR:::" + msg);
@@ -22,6 +24,7 @@ namespace Beale_Cipher_Algorithm_CLI
             // return -1;
             System.Environment.Exit(1);
         }
+
         static int Main(string[] args)
         {
             if (args.Length != 3)
@@ -35,17 +38,16 @@ namespace Beale_Cipher_Algorithm_CLI
             switch (args[0])
             {
                 case "encrypt":
-                    B1.encrypt("bisha");
+                    B1.encrypt();
                     break;
                 case "decrypt":
-                    B1.decrypt("bisha");
+                    B1.decrypt();
                     break;
                 default:
                     Error("second argument should be \"encrypt\" or \"decrypt\"");
                     break;
 
             }
-
             return 0;
         }
     }
@@ -58,23 +60,41 @@ namespace Beale_Cipher_Algorithm_CLI
             this.MBuffer = plainTxt;
             this.MOperation = operation;
 
+            mBook = File.ReadAllText(sourceBook);
+            if (mBook.Length == 0)
+            {
+                Program.Error("Empty File!");
+            }
+
         }
 
-
-        public int encrypt(string plainTxt)
+        public int encrypt()
         {
-            Console.WriteLine("Encrypt text");
+            Random r = new Random();
+            Console.Write("Encrypted text : ");
+            for (int i = 0; i < MBuffer.Length; i++)
+            {
+                for (int j = 0; j < mBook.Length; j++)
+                {
+                    j = r.Next(0, mBook.Length);
+                    if (MBuffer[i] == mBook[j])
+                    {
+                        Console.Write("{0} ", j);
+                        break;
+                    }
+                }
+            }
             return 0;
         }
 
-        public int decrypt(string plainTxt)
+        public int decrypt()
         {
             Console.WriteLine("Decrypt text");
             return 0;
         }
 
-        private string mPath = null;
-        private string MPath
+        private string mPath = null;            // Path to source book variable
+        private string MPath                    // get/set mPath property with error checking
         {
             get
             {
@@ -85,6 +105,7 @@ namespace Beale_Cipher_Algorithm_CLI
                 }
                 else
                 {
+                    Program.Error("Source book does not exist");
                     return null;
                 }
             }
@@ -103,21 +124,21 @@ namespace Beale_Cipher_Algorithm_CLI
             }
         }
 
-        private string mBuffer = null;
-        private string MBuffer
+        private string mBuffer = null;          // Buffer that hold plaintext/encoded text(hash)
+        private string MBuffer                  // set/get propert of mBuffer
         {
             get { return mBuffer; }
             set { mBuffer = value; }
         }
 
-        private string mOperation = null;
-
-        private string MOperation
+        private string mOperation = null;       // operation to do with the text
+        private string MOperation               // set/get propert mOperation
         {
             get { return mOperation; }
             set { mOperation = value; }
         }
 
+        private string mBook;            // Source book content
 
     }
 
