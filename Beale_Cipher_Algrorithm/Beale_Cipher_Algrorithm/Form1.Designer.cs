@@ -33,12 +33,13 @@ namespace Beale_Cipher_Algrorithm
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.EnterText = new System.Windows.Forms.Label();
             this.bookbtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.startBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -53,7 +54,7 @@ namespace Beale_Cipher_Algrorithm
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(294, 191);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 15);
+            this.label5.Size = new System.Drawing.Size(85, 15);
             this.label5.TabIndex = 3;
             this.label5.Text = "Encrypted text:";
             // 
@@ -66,14 +67,14 @@ namespace Beale_Cipher_Algrorithm
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
-            // button2
+            // button3
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(644, 251);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 42);
-            this.button2.TabIndex = 6;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(644, 251);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 42);
+            this.button3.TabIndex = 6;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // richTextBox2
             // 
@@ -89,7 +90,7 @@ namespace Beale_Cipher_Algrorithm
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1001, 191);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 15);
+            this.label3.Size = new System.Drawing.Size(86, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Decrypted text:";
             // 
@@ -98,7 +99,7 @@ namespace Beale_Cipher_Algrorithm
             this.EnterText.AutoSize = true;
             this.EnterText.Location = new System.Drawing.Point(228, 15);
             this.EnterText.Name = "EnterText";
-            this.EnterText.Size = new System.Drawing.Size(60, 15);
+            this.EnterText.Size = new System.Drawing.Size(59, 15);
             this.EnterText.TabIndex = 12;
             this.EnterText.Text = "Enter text:";
             // 
@@ -112,17 +113,28 @@ namespace Beale_Cipher_Algrorithm
             this.bookbtn.UseVisualStyleBackColor = true;
             this.bookbtn.Click += new System.EventHandler(this.bookbtn_Click);
             // 
+            // startBtn
+            // 
+            this.startBtn.Location = new System.Drawing.Point(1111, 12);
+            this.startBtn.Name = "startBtn";
+            this.startBtn.Size = new System.Drawing.Size(99, 23);
+            this.startBtn.TabIndex = 16;
+            this.startBtn.Text = "Start";
+            this.startBtn.UseVisualStyleBackColor = true;
+            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(1381, 590);
+            this.Controls.Add(this.startBtn);
             this.Controls.Add(this.bookbtn);
             this.Controls.Add(this.EnterText);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
@@ -137,13 +149,13 @@ namespace Beale_Cipher_Algrorithm
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label EnterText;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bookbtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button startBtn;
     }
 }
 
