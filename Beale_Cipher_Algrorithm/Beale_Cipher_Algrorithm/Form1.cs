@@ -17,14 +17,18 @@ namespace Beale_Cipher_Algrorithm
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        
 
+        private void bookbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
