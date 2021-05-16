@@ -89,7 +89,12 @@ namespace Beale_Cipher_Algorithm_CLI
 
         public int decrypt()
         {
-            Console.WriteLine("Decrypt text");
+            string[] ssize = mBuffer.Split(null);
+            Console.Write("Decrypted text: ");
+            for (int i = 0; i < ssize.Length; i++)
+            {
+                Console.Write("{0}", mBook[Convert.ToInt32(ssize[i])]);
+            }
             return 0;
         }
 
