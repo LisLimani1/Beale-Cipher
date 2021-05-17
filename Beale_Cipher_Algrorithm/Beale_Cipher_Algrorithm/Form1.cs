@@ -64,8 +64,9 @@ namespace Beale_Cipher_Algrorithm
         private void startBtn_Click(object sender, EventArgs e)
         {
             B1.MBuffer = textBox1.Text;
-            B1.encrypt();
-            B1.decrypt();
+            richTextBox1.Text = B1.encrypt();
+            B1.MBuffer = richTextBox1.Text;
+            richTextBox2.Text = B1.decrypt();
 
 
         }
@@ -77,10 +78,10 @@ namespace Beale_Cipher_Algrorithm
         {
         }
 
-        public int encrypt()
+        public string encrypt()
         {
+            string cipher = "";
             Random r = new Random();
-            Console.Write("Encrypted text : ");
             for (int i = 0; i < MBuffer.Length; i++)
             {
                 for (int j = 0; j < MBook.Length; j++)
@@ -88,23 +89,24 @@ namespace Beale_Cipher_Algrorithm
                     j = r.Next(0, MBook.Length);
                     if (MBuffer[i] == MBook[j])
                     {
-                        Console.Write("{0} ", j);
+                        cipher += j + " ";
                         break;
                     }
                 }
             }
-            return 0;
+            return cipher;
         }
 
-        public int decrypt()
+        public string decrypt()
         {
+            string ptext = "";
             string[] ssize = MBuffer.Split(null);
-            Console.Write("Decrypted text: ");
-            for (int i = 0; i < ssize.Length; i++)
+            for (int i = 0; i < ssize.Length-1; i++)
             {
-                Console.Write("{0}", MBook[Convert.ToInt32(ssize[i])]);
+                ptext += MBook[Convert.ToInt32(ssize[i])];
+
             }
-            return 0;
+            return ptext;
         }
 
         private string mPath = null;            // Path to source book variable
